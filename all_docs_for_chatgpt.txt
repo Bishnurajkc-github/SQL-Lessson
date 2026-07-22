@@ -1,0 +1,1426 @@
+
+
+==================================================
+FILE: AI_CONTEXT.md
+==================================================
+# AI_CONTEXT.md – SQL Learning (Parent & Daughter)
+
+## Purpose
+
+This project is for learning **SQL using SQLite from the absolute beginning**.
+
+There are two learners:
+
+* **Parent:** learning SQL first to build a strong foundation for future **Python + SQLite + Flask** projects, and to confidently teach the daughter.
+* **Daughter:** studying SQLite as part of **Grade 10 computer science**, where school teaching is more theory-based, so this project adds practical understanding.
+
+---
+
+## Main Learning Goals
+
+* Understand SQL concepts instead of memorizing syntax.
+* Learn by creating tables, inserting data, querying data, and later modifying it safely.
+* Build confidence through repeated hands-on practice.
+* Progress from beginner to intermediate SQL in a structured order.
+* Connect SQLite learning to future Flask, CRUD, and database work.
+
+---
+
+## Practice Environment
+
+### Current setup
+
+* **VS Code**
+* **SQLite terminal / shell**
+* lesson files such as `lesson01.sql`, `lesson02.sql`, etc.
+* persistent database file: `school.db`
+
+### Standard workflow
+
+1. Open **PowerShell** in the project folder.
+2. Run `sqlite3`
+3. Open the real database with `.open school.db`
+4. Run lesson files with `.read lesson01.sql`, `.read lesson02.sql`, etc.
+5. Verify with `.databases`, `.tables`, `.schema students`, and `SELECT * FROM students;`
+
+---
+
+# SQL Learning Roadmap (Beginner SQLite)
+
+## Phase 1 – Foundations
+1. SQL / SQLite / database / table / row / column
+2. `CREATE TABLE`
+3. `INSERT INTO`
+4. `SELECT`
+5. `WHERE`
+6. `AND`, `OR`, `NOT`
+7. comparison operators (`=`, `>`, `<`, `>=`, `<=`, `<>`)
+8. `LIKE`
+9. `ORDER BY`
+10. `LIMIT`
+11. `DISTINCT`
+
+## Phase 2 – Summaries and grouped results
+12. aggregate functions
+13. `GROUP BY`
+14. `HAVING`
+15. `NULL`, `IS NULL`, `IS NOT NULL`
+
+## Phase 3 – Changing data safely
+16. `UPDATE`
+17. `DELETE`
+
+## Phase 4 – Changing table structure
+18. `ALTER TABLE`
+19. `ADD COLUMN`
+20. `RENAME COLUMN`
+21. `RENAME TABLE` + `DROP TABLE`
+
+---
+
+# What comes after Lesson 21? (Glimpse only)
+
+After the beginner roadmap, the next stage can move into intermediate SQL and real project use:
+
+* revision mini-projects
+* table relationships and foreign keys
+* joins
+* SQLite with Python
+* SQLite in Flask
+* later SQLAlchemy
+
+
+==================================================
+FILE: LEARNING_LOG.md
+==================================================
+# LEARNING_LOG.md – SQL Learning (Parent & Daughter)
+
+This file is a running record of what was learned, what caused confusion, what mistakes happened, and what to revise later.
+
+---
+
+# 2026-07-02 – Project Setup + SQL Foundation Rebuild
+
+## What we did
+
+* Set up and tested the SQLite workflow in VS Code / terminal.
+* Confirmed that SQLite opens successfully with `sqlite3`.
+* Confirmed that `school.db` can be opened.
+* Confirmed that the `students` table exists.
+* Discussed a clean lesson workflow using `lesson01.sql`, `lesson02.sql`, etc.
+
+## Important thing learned today
+
+SQLite shell commands like `.read` and `.tables` must be run inside SQLite, not directly in PowerShell.
+
+---
+
+# 2026-07-05 – Beginner SQLite Roadmap Standardized
+
+## Confirmed beginner lesson order
+
+### Phase 1 – Foundations
+1. SQL / SQLite / database / table / row / column
+2. `CREATE TABLE`
+3. `INSERT INTO`
+4. `SELECT`
+5. `WHERE`
+6. `AND`, `OR`, `NOT`
+7. comparison operators
+8. `LIKE`
+9. `ORDER BY`
+10. `LIMIT`
+11. `DISTINCT`
+
+### Phase 2 – Summaries and grouped results
+12. aggregate functions
+13. `GROUP BY`
+14. `HAVING`
+15. `NULL`, `IS NULL`, `IS NOT NULL`
+
+### Phase 3 – Changing data
+16. `UPDATE`
+17. `DELETE`
+
+### Phase 4 – Structure changes
+18. `ALTER TABLE`
+19. `ADD COLUMN`
+20. `RENAME COLUMN`
+21. `RENAME TABLE` + `DROP TABLE`
+
+
+# 2026-07-07 – Phase 2 Completed (Lessons 12–15)
+
+## What we did
+
+Completed the full Phase 2 section of the beginner SQLite roadmap:
+
+* Lesson 12 – aggregate functions
+* Lesson 13 – `GROUP BY`
+* Lesson 14 – `HAVING`
+* Lesson 15 – `NULL`, `IS NULL`, `IS NOT NULL`
+
+## Important table upgrade done before Phase 2 practice
+
+Created and ran `lesson11a.sql` to improve the `students` table for better SQL practice.
+
+### Changes made to the table
+
+Added two new columns:
+
+* `city TEXT`
+* `marks INTEGER`
+
+### Resulting table structure
+
+`students(id, name, age, class, city, marks)`
+
+### Data improvement
+
+* existing 5 student rows were updated with city and marks
+* more student rows were inserted
+* one row was intentionally kept with `NULL` values for `city` and `marks` so that Lesson 15 could be practiced properly
+
+## Important things learned in Phase 2
+
+### Lesson 12 – Aggregate functions
+
+Learned how to summarize rows using:
+
+* `COUNT()`
+* `MIN()`
+* `MAX()`
+* `AVG()`
+
+Also practiced combining aggregate functions with `WHERE`.
+
+### Lesson 13 – `GROUP BY`
+
+Learned how to group rows by a column and then calculate summaries for each group, such as:
+
+* number of students in each class
+* number of students in each city
+* average marks in each class
+* highest marks in each city
+
+### Lesson 14 – `HAVING`
+
+Learned the difference between:
+
+* `WHERE` → filters rows before grouping
+* `HAVING` → filters grouped results after grouping
+
+### Lesson 15 – `NULL`
+
+Learned that `NULL` means missing / unknown value, and that SQL uses:
+
+* `IS NULL`
+* `IS NOT NULL`
+
+instead of `= NULL`.
+
+## Current status after this session
+
+Completed beginner SQLite **Phase 2** successfully.
+
+Next lesson:
+
+* Lesson 16 – `UPDATE`
+
+# 2026-07-08 – Phase 3 Started and Lessons 16–17 Completed
+
+## What we did
+
+Completed the first two “data change” lessons in the beginner SQLite roadmap:
+
+* Lesson 16 – `UPDATE`
+* Lesson 17 – `DELETE`
+
+Also created a short full revision lesson covering **Lessons 1–17** so the whole beginner path can be reviewed quickly and taught back more easily.
+
+---
+
+## Main concepts learned
+
+### Lesson 16 – `UPDATE`
+
+Learned how to change existing values in rows using:
+
+```sql
+UPDATE students
+SET city = 'Lalitpur'
+WHERE id = 3;
+```
+
+Key ideas:
+
+* `SET` decides which column value changes
+* `WHERE` decides which row(s) change
+* `UPDATE` without `WHERE` can change many or all rows
+* `UPDATE` can also be used to fill or restore `NULL` values
+
+### Lesson 17 – `DELETE`
+
+Learned how to remove row(s) from a table using:
+
+```sql
+DELETE FROM students
+WHERE id = 8;
+```
+
+Key ideas:
+
+* `DELETE` removes full rows, not just one column
+* `WHERE` decides which row(s) are removed
+* `DELETE` without `WHERE` can remove all rows in the table
+
+---
+
+## Important practice incident and correction
+
+During Lesson 16 practice, the row with `id = 11`—which had been intentionally kept as a `NULL` practice row—was accidentally changed so that:
+
+* `city` became `Lalitpur`
+* `marks` became `100`
+
+That row was then corrected back to its intended state with:
+
+```sql
+UPDATE students
+SET city = NULL,
+    marks = NULL
+WHERE id = 11;
+```
+
+This was a useful reminder that practice rows should be protected when they are being kept for later lessons.
+
+---
+
+## Important safety habit reinforced
+
+For both `UPDATE` and `DELETE`, the safe workflow is:
+
+1. `SELECT` first to see which row(s) match
+2. run `UPDATE` or `DELETE`
+3. `SELECT` again to verify the result
+
+That habit matters because Phase 3 commands can change or remove data permanently from the practice table.
+
+---
+
+## Teaching / revision outcome
+
+After learning Lessons 16 and 17, I taught the concepts to my daughter and she understood them well.
+
+To support revision and teaching, I also created a **short full SQLite revision lesson covering Lessons 1–17** using the same `students` table throughout. The goal of that revision lesson is to help both of us quickly visualize the full beginner journey from:
+
+* creating a table
+* inserting rows
+* selecting and filtering data
+* grouping and summarizing
+* handling `NULL`
+* updating rows
+* deleting rows
+
+---
+
+## What to revise later
+
+* the difference between **changing a value** (`UPDATE`) and **removing a row** (`DELETE`)
+* when to use `IS NULL` in conditions versus `SET column = NULL` in an `UPDATE`
+* why Phase 3 commands need extra care because they affect existing practice data
+
+---
+
+## Next step
+
+Continue to **Lesson 18 – `ALTER TABLE`**.
+
+
+
+==================================================
+FILE: PROJECT_HISTORY.md
+==================================================
+# PROJECT_HISTORY.md – SQL Learning (Parent & Daughter)
+
+This file tracks major progress milestones in the project.
+
+---
+
+## 2026-07-02 – Project Started / SQL Learning Structure Set Up
+
+Defined this project as a long-term SQL learning project for two purposes:
+
+1. Build a strong SQL foundation for later Python, Flask, and SQLite work.
+2. Support a Grade 10 daughter with practical SQLite exercises beyond school theory.
+
+---
+
+## 2026-07-05 – Beginner SQLite Roadmap Standardized
+
+The beginner roadmap is standardized as a Lesson 01–21 sequence, ending with `DROP TABLE`.
+
+## 2026-07-07 – Students Table Upgraded + Phase 2 Completed
+
+Added a support file `lesson11a.sql` to improve the practice table before Phase 2 lessons.
+
+### Table upgrade summary
+
+The `students` table was expanded from:
+
+* `id, name, age, class`
+
+to:
+
+* `id, name, age, class, city, marks`
+
+This was done so that aggregate functions, grouping, `HAVING`, and `NULL` practice would be more meaningful.
+
+### Phase 2 completion
+
+Completed:
+
+* Lesson 12 – aggregate functions
+* Lesson 13 – `GROUP BY`
+* Lesson 14 – `HAVING`
+* Lesson 15 – `NULL`, `IS NULL`, `IS NOT NULL`
+
+The project is now ready to move into **Phase 3 – Changing data safely**:
+
+* Lesson 16 – `UPDATE`
+* Lesson 17 – `DELETE`
+
+
+## 2026-07-08 – Phase 3 Started and Lessons 16–17 Completed
+
+Completed the first two Phase 3 lessons of the beginner SQLite roadmap.
+
+### Lessons completed
+
+* Lesson 16 – `UPDATE`
+* Lesson 17 – `DELETE`
+
+### Milestone details
+
+* practiced updating one row, multiple columns, and restoring `NULL` values
+* practiced deleting rows safely with `WHERE`
+* reinforced the habit of checking with `SELECT` before running `UPDATE` or `DELETE`
+* corrected the special `NULL` practice row (`id = 11`) back to `city = NULL` and `marks = NULL` after it was accidentally changed during practice
+
+### Teaching milestone
+
+The material from Lessons 16 and 17 was taught back to the daughter successfully, and a short **Lessons 1–17 full revision lesson** was created to help with quick review and teaching.
+
+### New current status
+
+* Beginner roadmap completed through **Lesson 17**
+* Next planned lesson: **Lesson 18 – `ALTER TABLE`**
+
+
+
+==================================================
+FILE: PROJECT_NOTES.md
+==================================================
+# PROJECT_NOTES.md – SQL Learning Project
+
+This file stores reusable notes, commands, reminders, and project-level guidance.
+
+---
+
+# Standard SQLite Workflow
+
+1. Open PowerShell in the project folder.
+2. Run `sqlite3`
+3. Inside SQLite, open the project database with `.open school.db`
+4. Run the lesson file, for example `.read lesson01.sql`
+5. Verify results with `.tables`, `.schema students`, and `SELECT * FROM students;`
+
+---
+
+# Useful SQLite Commands
+
+```powershell
+sqlite3
+```
+
+```sql
+.open school.db
+.databases
+.tables
+.schema students
+SELECT * FROM students;
+.quit
+```
+# Create SQL Lesson Files from PowerShell
+
+Project folder:
+
+```powershell
+D:\SQL-LEARNING
+```
+
+If PowerShell is already open in this folder:
+
+```powershell
+PS D:\SQL-LEARNING>
+```
+
+run this command to create `lesson11.sql` to `lesson22.sql`:
+
+```powershell
+11..22 | ForEach-Object { New-Item -Path "lesson$_.sql" -ItemType File }
+```
+
+To confirm the files were created:
+
+```powershell
+Get-ChildItem lesson*.sql 
+
+or
+
+dir
+```
+---
+
+# Students Table Upgrade Note
+
+Before starting Phase 2, the original `students` table was upgraded through `lesson11a.sql` so later lessons would be more realistic.
+
+## Original table
+
+* `id`
+* `name`
+* `age`
+* `class`
+
+## Upgraded table
+
+* `id`
+* `name`
+* `age`
+* `class`
+* `city`
+* `marks`
+
+## Why the upgrade was done
+
+The original 4-column table was enough for early beginner lessons, but it was too limited for:
+
+* aggregate functions
+* `GROUP BY`
+* `HAVING`
+* `NULL`
+* later `UPDATE` / `DELETE` practice
+
+Adding `city` and `marks`, plus extra rows, made the dataset more useful for realistic SQL practice.
+
+## Important note
+
+`lesson11a.sql` is a support / upgrade file, not a core beginner roadmap lesson.
+It exists to improve the practice database before Lessons 12–21.
+
+# Phase 3 safety rule
+
+Before running `UPDATE` or `DELETE`, use this mini workflow:
+
+1. `SELECT` first to see which rows match
+2. run `UPDATE` or `DELETE`
+3. `SELECT` again to verify the result
+
+This should now be treated as a standard habit for all Phase 3 practice.
+
+---
+
+# Current teaching / revision assets
+
+Useful teaching pieces already created in this project:
+
+* Lesson explanations up to Lesson 17
+* daughter-friendly teaching explanation for Lessons 16 and 17
+* a short full revision lesson covering Lessons 1–17 using the same `students` table throughout
+
+These are useful before starting Phase 4.
+
+
+## Phase 3 – Data changes
+
+16. `UPDATE`
+17. `DELETE`
+
+## Phase 4 – Structure changes
+
+18. `ALTER TABLE`
+19. `ADD COLUMN`
+20. `RENAME COLUMN`
+21. `RENAME TABLE` + `DROP TABLE`
+
+
+
+==================================================
+FILE: PROJECT_TOOLS.md
+==================================================
+# Project Tools & Workflow Reference
+
+This file is a practical reference for helper scripts, common terminal commands, and the basic workflow I use in this project.
+The goal is to reduce repeated thinking, keep project context organized, and make it easier to continue work after a break.
+
+---
+
+# 1) Project structure for notes and tools
+
+Recommended structure:
+
+```text
+my_flask_project/
+├─ app.py
+├─ share_docs.ps1
+├─ requirements.txt
+├─ docs/
+│  ├─ ai_context.md
+│  ├─ learning_log.md
+│  ├─ project_history.md
+│  ├─ roadmap.md
+│  ├─ notes.md
+│  └─ project_tools.md
+├─ templates/
+├─ static/
+├─ instance/
+└─ ...
+```
+
+## Purpose of the important parts
+
+### `docs/`
+
+Stores project notes and context files:
+
+* **`ai_context.md`** → current project state, features, structure, conventions, what ChatGPT should know quickly
+* **`learning_log.md`** → what I learned, what confused me, what I completed, next practice focus
+* **`project_history.md`** → major project changes and milestones
+* **`roadmap.md`** → feature/task roadmap and order of learning/building
+* **`notes.md`** → extra rough notes, reminders, questions, snippets, observations
+* **`project_tools.md`** → this file; reference for scripts, commands, and workflow
+
+### `share_docs.ps1`
+
+A PowerShell helper script stored in the **project root**.
+It combines all the Markdown files inside `docs/` into one text file so I can quickly paste the full project context into ChatGPT.
+
+---
+
+# 2) `share_docs.ps1`
+
+## Purpose
+
+This script collects all `.md` files inside the `docs/` folder and combines them into one file:
+
+```text
+all_docs_for_chatgpt.txt
+```
+
+It then opens that file in Notepad so I can copy everything and paste it into ChatGPT.
+
+This is useful when I want to share:
+
+* project context
+* progress notes
+* learning log
+* roadmap
+* history
+* questions and reminders
+
+all at once.
+
+---
+
+## Where the script should be stored
+
+Store it in the **project root**, not inside `docs/`.
+
+Correct example:
+
+```text
+my_flask_project/
+├─ share_docs.ps1
+├─ docs/
+└─ ...
+```
+
+---
+
+## Important distinction: file vs command
+
+### Script file
+
+This is the actual file saved in the project root:
+
+```text
+share_docs.ps1
+```
+
+### Command used to run it
+
+This is typed in PowerShell:
+
+```powershell
+.\share_docs.ps1
+```
+
+The command is **not a file**. It simply tells PowerShell to run the script from the current folder.
+
+---
+
+## What `.\share_docs.ps1` means
+
+### `.\`
+
+Means:
+
+> “look in the current folder”
+
+### `share_docs.ps1`
+
+Means:
+
+> “run the PowerShell script file with this name”
+
+So:
+
+```powershell
+.\share_docs.ps1
+```
+
+means:
+
+> “Run the file named `share_docs.ps1` from the current folder.”
+
+---
+
+## How to run it
+
+### Step 1: open PowerShell in the project folder
+
+Example:
+
+```powershell
+cd C:\Users\Bishnu\Desktop\my_flask_project
+```
+
+### Step 2: run the script
+
+```powershell
+.\share_docs.ps1
+```
+
+---
+
+## What the script does behind the scenes
+
+When run, it:
+
+1. checks the `docs/` folder
+2. finds all `.md` files
+3. reads the content of each file
+4. combines them into:
+
+   ```text
+   all_docs_for_chatgpt.txt
+   ```
+5. opens that file in Notepad
+
+This makes it easy to share all project notes in one go.
+
+---
+
+# 3) Full code for `share_docs.ps1`
+
+Keep this code inside the file named `share_docs.ps1` in the project root:
+
+```powershell
+# share_docs.ps1
+# Run this from your project root.
+# It combines all .md files from the docs folder into one text file for easy sharing with ChatGPT.
+
+$docsPath = ".\docs"
+$outputFile = ".\all_docs_for_chatgpt.txt"
+
+if (-not (Test-Path $docsPath)) {
+    Write-Host "docs folder not found at $docsPath"
+    exit
+}
+
+# Clear old export file if it exists
+Remove-Item $outputFile -ErrorAction SilentlyContinue
+
+Get-ChildItem "$docsPath\*.md" | Sort-Object Name | ForEach-Object {
+    Add-Content $outputFile "`n`n=================================================="
+    Add-Content $outputFile "FILE: $($_.Name)"
+    Add-Content $outputFile "=================================================="
+    Get-Content $_.FullName | Add-Content $outputFile
+}
+
+Write-Host ""
+Write-Host "Done. Created: $outputFile"
+Write-Host "Opening file..."
+notepad $outputFile
+```
+
+---
+
+# 4) How to share full project docs with ChatGPT
+
+## Recommended workflow
+
+### Step 1
+
+Go to the project folder in PowerShell:
+
+```powershell
+cd C:\Users\Bishnu\Desktop\my_flask_project
+```
+
+### Step 2
+
+Run:
+
+```powershell
+.\share_docs.ps1
+```
+
+### Step 3
+
+Notepad opens with `all_docs_for_chatgpt.txt`
+
+### Step 4
+
+Copy the content and paste it into ChatGPT.
+
+---
+
+## When to use this
+
+Use this when:
+
+* ChatGPT needs the full project context
+* I have updated multiple docs files
+* I want help deciding the next project step
+* I want ChatGPT to review current progress and project notes together
+* I am returning to the project after a break and want a clean restart context
+
+---
+
+# 5) Common Flask commands
+
+> Exact commands can vary depending on how the project is set up.
+> Keep only the ones I actually use often.
+
+## Activate virtual environment
+
+If using a virtual environment:
+
+```powershell
+.\venv\Scripts\activate
+```
+
+If the environment has a different name, replace `venv` with that folder name.
+
+---
+
+## Run Flask app (common simple method)
+
+```powershell
+python app.py
+```
+
+Use this if the project is structured to run directly from `app.py`.
+
+---
+
+## Flask CLI method (if configured)
+
+```powershell
+flask run
+```
+
+Sometimes this is used when `FLASK_APP` is configured or when the project follows the Flask CLI pattern.
+
+---
+
+## Install requirements
+
+```powershell
+pip install -r requirements.txt
+```
+
+Use this when setting up the project on a new machine or after updating dependencies.
+
+---
+
+## Freeze installed packages into requirements file
+
+```powershell
+pip freeze > requirements.txt
+```
+
+Use carefully. It writes the currently installed packages into `requirements.txt`.
+
+---
+
+# 6) Common Git commands
+
+These are the Git commands I am most likely to use regularly in a small Flask project.
+
+## Check current status
+
+```powershell
+git status
+```
+
+Shows:
+
+* changed files
+* untracked files
+* staged files
+* current branch status
+
+---
+
+## Add all changes
+
+```powershell
+git add .
+```
+
+Adds all current changes to staging.
+
+If I want to add only one file:
+
+```powershell
+git add path\to\file
+```
+
+Example:
+
+```powershell
+git add docs\learning_log.md
+```
+
+---
+
+## Commit changes
+
+```powershell
+git commit -m "Write clear message here"
+```
+
+Example:
+
+```powershell
+git commit -m "Add blog card layout and update docs"
+```
+
+---
+
+## Push to GitHub
+
+```powershell
+git push
+```
+
+If needed for first-time branch push:
+
+```powershell
+git push -u origin main
+```
+
+---
+
+## Pull latest changes
+
+```powershell
+git pull
+```
+
+Use this before working if the project is being updated elsewhere.
+
+---
+
+## See commit history
+
+```powershell
+git log --oneline
+```
+
+Useful for quickly reviewing recent commits.
+
+---
+
+# 7) Common SQLite commands
+
+These are useful when working directly with the SQLite database from the terminal.
+
+Assume the database file is called `blog.db`. Replace the name if needed.
+
+## Open SQLite shell for the database
+
+```powershell
+sqlite3 blog.db
+```
+
+This opens the SQLite interactive shell.
+
+---
+
+## Show all tables
+
+Inside SQLite shell:
+
+```sql
+.tables
+```
+
+---
+
+## Show schema for the whole database
+
+Inside SQLite shell:
+
+```sql
+.schema
+```
+
+---
+
+## Show schema for one table
+
+Inside SQLite shell:
+
+```sql
+.schema users
+```
+
+Example table name: `users`
+
+---
+
+## Show rows from a table
+
+Inside SQLite shell:
+
+```sql
+SELECT * FROM users;
+```
+
+---
+
+## Show rows with better formatting
+
+Inside SQLite shell:
+
+```sql
+.mode column
+.headers on
+SELECT * FROM users;
+```
+
+---
+
+## Exit SQLite shell
+
+Inside SQLite shell:
+
+```sql
+.quit
+```
+
+---
+
+# 8) When to use SQLite terminal commands vs Flask/SQLAlchemy code
+
+## Use SQLite terminal commands when I want to:
+
+* quickly inspect tables
+* see whether rows were inserted
+* check schema
+* Verify database contents during debugging
+* understand what is happening behind the Flask app
+
+## Use Flask/SQLAlchemy code when I want to:
+
+* create app features
+* query data inside routes
+* insert/update/delete records from the app
+* build forms, login, blog posts, comments, etc.
+
+SQLite shell is mostly for inspection and debugging.
+The Flask app code is where the real application logic lives.
+
+---
+
+# 9) Suggested workflow before asking ChatGPT for project help
+
+When I want help with the project, I should try to give enough context so the answer is accurate and specific.
+
+## Good workflow
+
+### 1. Update relevant docs
+
+If something changed, update one or more of:
+
+* `ai_context.md`
+* `learning_log.md`
+* `project_history.md`
+* `roadmap.md`
+* `notes.md`
+
+### 2. Run the docs export script
+
+```powershell
+.\share_docs.ps1
+```
+
+### 3. Copy the generated text into ChatGPT
+
+### 4. Add the specific question
+
+For example:
+
+* “Please review the project state and tell me the next best step.”
+* “I am confused about my blog card layout and route structure. Here are my docs.”
+* “Based on these notes, what should I work on next?”
+* “Check if my roadmap and learning log are still aligned.”
+
+---
+
+# 10) What to include when asking for debugging help
+
+If I want help with a bug, I should include the most useful pieces instead of only saying “it doesn’t work.”
+
+Helpful things to share:
+
+* the exact error message
+* the route or feature I was working on
+* relevant Python/Flask code
+* relevant template code
+* relevant model code
+* whether the issue is in HTML/CSS, Flask route logic, SQLAlchemy, form handling, or database data
+* recent changes I made before the problem started
+* docs context if the issue is connected to project structure or roadmap
+
+---
+
+# 11) Suggested project habits
+
+## Keep docs useful, not perfect
+
+The docs do not need to be polished like a public document.
+They only need to be clear enough to help me continue the project and help ChatGPT understand the project state.
+
+## Update docs after meaningful progress
+
+Examples:
+
+* finished a feature
+* changed project structure
+* learned an important concept
+* got stuck on a repeated confusion
+* changed the roadmap or next step
+* refactored a route, template, or model structure
+
+## Use commit messages that describe real changes
+
+Bad:
+
+```text
+update
+```
+
+Better:
+
+```text
+Add post detail route and update learning log
+```
+
+## Keep helper scripts simple
+
+Only add helper scripts when they solve a repeated task:
+
+* exporting docs
+* showing project snapshot
+* checking database schema
+* other repeated project workflows
+
+---
+
+# 12) Quick reference section
+
+## Run docs export
+
+```powershell
+.\share_docs.ps1
+```
+
+## Activate venv
+
+```powershell
+.\venv\Scripts\activate
+```
+
+## Run app
+
+```powershell
+python app.py
+```
+
+## Flask CLI run
+
+```powershell
+flask run
+```
+
+## Install requirements
+
+```powershell
+pip install -r requirements.txt
+```
+
+## Git status
+
+```powershell
+git status
+```
+
+## Git add all
+
+```powershell
+git add .
+```
+
+## Git commit
+
+```powershell
+git commit -m "Describe changes"
+```
+
+## Git push
+
+```powershell
+git push
+```
+
+## Open SQLite DB
+
+```powershell
+sqlite3 blog.db
+```
+
+## Show tables
+
+```sql
+.tables
+```
+
+## Show schema
+
+```sql
+.schema
+```
+
+---
+
+# 13) Future upgrade ideas
+
+Possible helper scripts I may add later:
+
+## `project_snapshot.ps1`
+
+Could export:
+
+* docs files
+* README
+* requirements.txt
+* project folder tree
+* maybe SQLite schema
+
+## `show_db_schema.ps1`
+
+Could quickly display:
+
+* table list
+* schema
+* maybe selected rows from key tables
+
+## `backup_docs.ps1`
+
+Could create a dated backup of the `docs/` folder before large changes
+
+---
+
+# 14) Bottom line
+
+This project should have:
+
+* **project code**
+* **project docs**
+* **small helper scripts for repeated tasks**
+
+The most important current helper tool is:
+
+```powershell
+.\share_docs.ps1
+```
+
+because it gives a fast way to share the full project notes and context with ChatGPT.
+
+
+==================================================
+FILE: SQLITE_SESSION_CHECKLIST.md
+==================================================
+# SQLITE_SESSION_CHECKLIST.md
+
+## Purpose
+
+Use this checklist at the start of every SQLite practice session so I do not accidentally work in the temporary in-memory database.
+
+---
+
+## Important rule
+
+When I type `sqlite3`, SQLite may first open a temporary in-memory database.
+That means my work is not automatically going into `school.db` unless I explicitly open the database file.
+
+---
+
+## Correct session start order
+
+1. Open PowerShell in the project folder
+2. Start SQLite with `sqlite3`
+3. Immediately open the real database file with `.open school.db`
+4. Confirm with `.databases` and `.tables`
+5. Optional quick check: `SELECT * FROM students;`
+
+---
+
+## Very important reminder about `.read`
+
+`.read lesson02.sql` does not mean “show the file”. It means run all SQL commands written inside that file.
+
+
+==================================================
+FILE: TODO.md
+==================================================
+# TODO.md – SQL Learning Project
+
+## Current Priority
+
+Continue the beginner SQLite roadmap in the correct order and keep the docs updated as lessons are completed.
+
+---
+
+## Beginner roadmap checklist
+
+### Phase 1 – Foundations
+- [x] Lesson 01 – SQL / SQLite / database / table / row / column
+- [x] Lesson 02 – `CREATE TABLE`
+- [x] Lesson 03 – `INSERT INTO`
+- [x] Lesson 04 – `SELECT`
+- [x] Lesson 05 – `WHERE`
+- [x] Lesson 06 – `AND`, `OR`, `NOT`
+- [x] Lesson 07 – comparison operators
+- [x] Lesson 08 – `LIKE`
+- [x] Lesson 09 – `ORDER BY`
+- [x] Lesson 10 – `LIMIT`
+- [x] Lesson 11 – `DISTINCT`
+
+### Phase 2 – Summaries
+- [x] Lesson 12 – aggregate functions
+- [x] Lesson 13 – `GROUP BY`
+- [x] Lesson 14 – `HAVING`
+- [x] Lesson 15 – `NULL`, `IS NULL`, `IS NOT NULL`
+
+### Phase 3 – Data changes
+- [ ] Lesson 16 – `UPDATE`
+- [ ] Lesson 17 – `DELETE`
+
+### Phase 4 – Structure changes
+- [ ] Lesson 18 – `ALTER TABLE`
+- [ ] Lesson 19 – `ADD COLUMN`
+- [ ] Lesson 20 – `RENAME COLUMN`
+- [ ] Lesson 21 – `RENAME TABLE` + `DROP TABLE`
+
+# TODO.md – SQL Learning Project
+
+## Current Priority
+
+Continue the beginner SQLite roadmap in the correct order and keep the docs updated as lessons are completed.
+
+---
+
+## Beginner roadmap checklist
+
+### Phase 1 – Foundations
+
+* [x] Lesson 01 – SQL / SQLite / database / table / row / column
+* [x] Lesson 02 – `CREATE TABLE`
+* [x] Lesson 03 – `INSERT INTO`
+* [x] Lesson 04 – `SELECT`
+* [x] Lesson 05 – `WHERE`
+* [x] Lesson 06 – `AND`, `OR`, `NOT`
+* [x] Lesson 07 – comparison operators
+* [x] Lesson 08 – `LIKE`
+* [x] Lesson 09 – `ORDER BY`
+* [x] Lesson 10 – `LIMIT`
+* [x] Lesson 11 – `DISTINCT`
+
+### Support / setup
+
+* [x] Lesson 11a – upgraded `students` table for later lessons (`city`, `marks`, more rows, `NULL` practice row)
+
+### Phase 2 – Summaries
+
+* [x] Lesson 12 – aggregate functions
+* [x] Lesson 13 – `GROUP BY`
+* [x] Lesson 14 – `HAVING`
+* [x] Lesson 15 – `NULL`, `IS NULL`, `IS NOT NULL`
+
+### Phase 3 – Data changes
+
+* [x] Lesson 16 – `UPDATE`
+* [x] Lesson 17 – `DELETE`
+
+### Phase 4 – Structure changes
+
+* [ ] Lesson 18 – `ALTER TABLE`
+* [ ] Lesson 19 – `ADD COLUMN`
+* [ ] Lesson 20 – `RENAME COLUMN`
+* [ ] Lesson 21 – `RENAME TABLE` + `DROP TABLE`
+
+## Documentation
+
+* [x] Update docs after the Lesson 16–17 milestone
+
+## Phase 3 – Data changes
+
+* [x] Lesson 16 – `UPDATE`
+* [x] Lesson 17 – `DELETE`
+
+## Phase 4 – Structure changes
+
+* [ ] Lesson 18 – `ALTER TABLE`
+* [ ] Lesson 19 – `ADD COLUMN`
+* [ ] Lesson 20 – `RENAME COLUMN`
+* [ ] Lesson 21 – `RENAME TABLE` + `DROP TABLE`
+
+## Revision / teaching tasks
+
+* [x] Create a short full revision lesson for Lessons 1–17
+* [ ] Use the 1–17 revision lesson once more with daughter and note which parts need extra explanation
+* [ ] Add 5 quick revision questions from Lessons 16–17
+* [ ] Add a short revision checkpoint before beginning Lesson 18
+
+## Next practical lesson task
+
+* [ ] Learn Lesson 18 – `ALTER TABLE`
+* [ ] Keep the focus on the difference between **changing data** and **changing table structure**
+* [ ] Add a safe practice example before making any permanent structure changes
+
