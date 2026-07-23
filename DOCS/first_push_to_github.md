@@ -244,3 +244,38 @@ git commit -m "Describe your changes"
 git push
 ```
 
+  # Additional ==================================================================================
+
+```bash
+Create Project on PC
+        │
+        ▼
+Create EMPTY GitHub Repository
+        │
+        ▼
+git init
+git add .
+git commit
+git branch -M main
+git remote add origin ...
+git push -u origin main
+        │
+        ▼
+Project is now on GitHub
+        │
+        ▼
+Future updates:
+git add .
+git commit
+git push
+
+```
+
+# The only exception
+```bash
+If you start a project directly in GitHub Codespaces instead of on your PC, you don't need git init or git remote add origin. Codespaces is already connected to the GitHub repository, so your workflow is simply:
+
+git add .
+git commit -m "Describe changes"
+git push
+```
