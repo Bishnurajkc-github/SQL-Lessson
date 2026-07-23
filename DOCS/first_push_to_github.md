@@ -279,3 +279,317 @@ git add .
 git commit -m "Describe changes"
 git push
 ```
+
+
+# GitHub Synchronization Guide
+
+A practical reference for keeping **GitHub**, **your local PC**, and **GitHub Codespaces** synchronized.
+
+---
+
+# The Big Picture ===================
+===============================================
+
+Think of **GitHub** as the central meeting point.
+
+```text
+              GitHub
+             /      \
+            /        \
+      Local PC    Codespace
+```
+
+* Your PC and Codespace **do not communicate directly**.
+* They both synchronize through **GitHub**.
+
+---
+
+# Rule #1
+
+**Whichever device did NOT make the latest changes must use `git pull`.**
+
+---
+
+# Scenario 1 - Changes Made on Your PC
+
+You edit files in VS Code.
+
+Example:
+
+```bash
+git add .
+git commit -m "Added Lesson 27"
+git push
+```
+
+Result:
+
+```text
+Local PC    ✅ Latest
+GitHub      ✅ Latest
+Codespace   ❌ Old Version
+```
+
+When you later open Codespaces:
+
+```bash
+git pull
+```
+
+Now:
+
+```text
+Local PC    ✅ Latest
+GitHub      ✅ Latest
+Codespace   ✅ Latest
+```
+
+---
+
+# Scenario 2 - Changes Made in Codespaces
+
+You edit files in Codespaces.
+
+```bash
+git add .
+git commit -m "Updated README"
+git push
+```
+
+Result:
+
+```text
+Codespace   ✅ Latest
+GitHub      ✅ Latest
+Local PC    ❌ Old Version
+```
+
+When you return to your PC:
+
+```bash
+git pull
+```
+
+Now everything is synchronized.
+
+---
+
+# Scenario 3 - Changes Made on GitHub (Browser Edit)
+
+You edit a file using GitHub's **Edit** button and commit the changes.
+
+Result:
+
+```text
+GitHub      ✅ Latest
+Local PC    ❌ Old Version
+Codespace   ❌ Old Version
+```
+
+To update your PC:
+
+```bash
+git pull
+```
+
+To update your Codespace:
+
+```bash
+git pull
+```
+
+---
+
+# Collaboration Example
+
+Suppose your daughter pushes new SQL lessons.
+
+```text
+Daughter's Codespace
+        │
+        │ git push
+        ▼
+      GitHub
+        │
+        ├──────────────┐
+        ▼              ▼
+    Your PC      Your Codespace
+    git pull      git pull
+```
+
+Both your PC and Codespace need to download her changes.
+
+---
+
+# Daily Workflow
+
+## When Working on Your PC
+
+Before starting:
+
+```bash
+git pull
+```
+
+Do your work.
+
+Then:
+
+```bash
+git add .
+git commit -m "Describe your changes"
+git push
+```
+
+---
+
+## When Working in Codespaces
+
+Before starting:
+
+```bash
+git pull
+```
+
+Do your work.
+
+Then:
+
+```bash
+git add .
+git commit -m "Describe your changes"
+git push
+```
+
+---
+
+# Why Use `git pull` Before You Start?
+
+Suppose yesterday you worked on your PC.
+
+Today you open Codespaces.
+
+Without running `git pull`, Codespaces may still have yesterday's files.
+
+Running:
+
+```bash
+git pull
+```
+
+downloads the latest changes from GitHub before you begin working.
+
+This reduces the chance of merge conflicts.
+
+---
+
+# Push vs Pull
+
+## git push
+
+Uploads your local commits to GitHub.
+
+```text
+Your Device
+     │
+git push
+     ▼
+   GitHub
+```
+
+---
+
+## git pull
+
+Downloads the latest commits from GitHub.
+
+```text
+GitHub
+   │
+git pull
+   ▼
+Your Device
+```
+
+---
+
+# Important Reminder
+
+Neither your PC nor Codespaces updates automatically.
+
+Even if GitHub has the newest files, each copy remains unchanged until you run:
+
+```bash
+git pull
+```
+
+---
+
+# Typical Workflow
+
+```text
+Open Project
+      │
+      ▼
+git pull
+      │
+      ▼
+Edit Files
+      │
+      ▼
+git add .
+      │
+      ▼
+git commit -m "Describe changes"
+      │
+      ▼
+git push
+```
+
+Repeat this every time you work.
+
+---
+
+# Golden Rules
+
+### Rule 1
+
+GitHub is the **central repository**.
+
+---
+
+### Rule 2
+
+The device that **made the changes** uses:
+
+```bash
+git push
+```
+
+---
+
+### Rule 3
+
+Any device or Codespace that **did NOT make the changes** must use:
+
+```bash
+git pull
+```
+
+---
+
+### Rule 4
+
+Before starting work on a shared project, it's a good habit to run:
+
+```bash
+git pull
+```
+
+This ensures you begin with the latest version of the project.
+
+---
+
+# One-Sentence Summary
+
+> **Push sends your changes to GitHub. Pull brings GitHub's changes to your current computer or Codespace. GitHub is the central hub that keeps every copy in sync.**
