@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 My suggestion for your learning order
@@ -21,3 +22,7 @@ SQLAlchemy
 Flask database relationships
 
 This order closely matches the skills you'll use when building real Flask applications like your Student Notes App, Recipe App, and Mini Blog, so each new SQL concept will have an immediate practical us
+=======
+# SQL-Lessson
+sql self learning lesson
+>>>>>>> 23d3652fe21403f9dced061abc7daffd013d6dfc
