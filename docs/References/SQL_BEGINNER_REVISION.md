@@ -29,3 +29,8 @@ Always:
 2. Run the SQL.
 3. Check with SELECT or .schema.
 4. Explain why it worked.
+
+
+NOTE : to run sqlite in the terminal 
+# sqlite3
+## .read+filename(lesson)
