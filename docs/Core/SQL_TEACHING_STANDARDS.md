@@ -1,14 +1,16 @@
-# SQL_TEACHING_STANDARD.md
+# SQL Teaching Standards
 
-# Purpose
+## Purpose
 
 This document defines how every SQL lesson should be taught.
 
 Its purpose is to ensure every lesson follows a consistent teaching style that emphasizes understanding, logical thinking, practical application, and long-term retention rather than memorization.
 
+These standards apply to both Bishnu and Aayushi throughout their SQL and database learning journey.
+
 ---
 
-# Core Teaching Philosophy
+## Core Teaching Philosophy
 
 Always prioritize understanding over memorizing SQL syntax.
 
@@ -24,7 +26,7 @@ Every lesson should help the learner understand:
 
 ---
 
-# Teaching Principles
+## Teaching Principles
 
 For every lesson:
 
@@ -37,11 +39,13 @@ For every lesson:
 
 ---
 
-# Lesson Structure
+## Lesson Structure
 
-Every lesson should follow this sequence whenever appropriate.
+Every lesson should follow the sequence below whenever appropriate.
 
-## 1. Lesson Title
+**Use the lesson structure flexibly.** Include sections when they genuinely help understanding. Do not repeat explanations or make simple lessons unnecessarily long. The goal is clarity and understanding, not following every section mechanically.
+
+### 1. Lesson Title
 
 Clearly identify the lesson number and topic.
 
@@ -49,9 +53,7 @@ Example:
 
 Lesson 26 – INNER JOIN
 
----
-
-## 2. Scenario
+### 2. Scenario
 
 Introduce a simple real-world situation.
 
@@ -65,9 +67,7 @@ Examples:
 
 The learner should understand why the SQL problem exists before solving it.
 
----
-
-## 3. Learning Objective
+### 3. Learning Objective
 
 Explain what the learner will understand by the end of the lesson.
 
@@ -75,9 +75,7 @@ Example:
 
 "By the end of this lesson you will understand how INNER JOIN combines related tables."
 
----
-
-## 4. Concept Explanation
+### 4. Concept Explanation
 
 Explain the idea without immediately writing SQL.
 
@@ -85,9 +83,7 @@ Focus on understanding before syntax.
 
 Use simple language.
 
----
-
-## 5. Why It Is Useful
+### 5. Why It Is Useful
 
 Explain where the concept is used in:
 
@@ -98,9 +94,7 @@ Explain where the concept is used in:
 - PostgreSQL
 - Real applications
 
----
-
-## 6. Predict Before Running
+### 6. Predict Before Running
 
 Whenever appropriate, encourage the learner to predict the outcome.
 
@@ -113,9 +107,7 @@ Examples:
 
 Encourage thinking before execution.
 
----
-
-## 7. SQL Being Executed
+### 7. SQL Being Executed
 
 Before executing SQL, always print the exact SQL statement.
 
@@ -123,15 +115,14 @@ Never surprise the learner with output.
 
 Example:
 
+```sql
 .print "SQL Being Executed"
-
 .print "SELECT * FROM customers;"
+```
 
 The learner should always know exactly what SQLite is about to execute.
 
----
-
-## 8. Execute the SQL
+### 8. Execute the SQL
 
 Run the SQL normally.
 
@@ -139,9 +130,7 @@ Allow SQLite to display the real output.
 
 Do not replace actual output with manually written examples unless necessary.
 
----
-
-## 9. Observe the Output
+### 9. Observe the Output
 
 After execution, encourage observation before explanation.
 
@@ -153,9 +142,7 @@ Example questions:
 - How many rows are shown?
 - What values became NULL?
 
----
-
-## 10. Explain the Output
+### 10. Explain the Output
 
 Clearly explain why SQLite produced the displayed result.
 
@@ -163,9 +150,7 @@ Never assume the learner understands automatically.
 
 Always connect the explanation directly to the SQL statement that was executed.
 
----
-
-## 11. Important Rule
+### 11. Important Rule
 
 Highlight the key rule learned.
 
@@ -173,9 +158,7 @@ Example:
 
 INNER JOIN only returns matching rows from both tables.
 
----
-
-## 12. Common Beginner Mistakes
+### 12. Common Beginner Mistakes
 
 Whenever appropriate, explain mistakes beginners commonly make.
 
@@ -186,9 +169,7 @@ Examples:
 - Expecting INNER JOIN to return every customer.
 - Confusing NULL with empty text.
 
----
-
-## 13. Flask / Python Connection
+### 13. Flask / Python Connection
 
 Whenever appropriate, explain how the SQL concept will be used later.
 
@@ -202,23 +183,17 @@ Examples:
 
 Help learners see how SQL fits into full-stack development.
 
----
-
-## 14. What You Learned
+### 14. What You Learned
 
 Summarize the lesson in simple bullet points.
 
----
-
-## 15. Mini Challenge
+### 15. Mini Challenge
 
 Provide a small practical exercise.
 
 The learner should solve it independently before reading the explanation.
 
----
-
-## 16. Lesson Summary
+### 16. Lesson Summary
 
 Briefly recap:
 
@@ -229,7 +204,7 @@ Briefly recap:
 
 ---
 
-# Terminal Teaching Standard
+## Terminal Teaching Standard
 
 The SQLite terminal should function as an interactive teacher.
 
@@ -247,9 +222,9 @@ Never allow important SQL to execute without first showing it in the terminal.
 
 ---
 
-# Query Teaching Standard
+## Query Teaching Standard
 
-Every important SQL statement should follow this order.
+Every important SQL statement should follow this order:
 
 1. Explain why the SQL is needed.
 2. Print the SQL.
@@ -261,7 +236,7 @@ This sequence should be repeated consistently throughout every lesson.
 
 ---
 
-# Think Like the Database
+## Think Like the Database
 
 Teach SQL from SQLite's perspective whenever possible.
 
@@ -279,7 +254,7 @@ Teach logical reasoning instead of memorization.
 
 ---
 
-# Incremental Query Building
+## Incremental Query Building
 
 Avoid presenting large SQL statements immediately.
 
@@ -297,7 +272,7 @@ Complex SQL should be built step by step.
 
 ---
 
-# Verification Habit
+## Verification Habit
 
 Encourage learners to verify their work frequently.
 
@@ -310,13 +285,31 @@ After:
 - JOIN
 - GROUP BY
 
-use SELECT statements to confirm the result.
+Use SELECT statements to confirm the result.
 
 Develop good debugging habits from the beginning.
 
 ---
 
-# Learning Philosophy
+## Learning Depth and Expectations
+
+The objective is practical understanding, not academic examination preparation.
+
+Learners should understand:
+
+- The main concept and its purpose.
+- How SQL behaves and why it produces particular results.
+- Common practical uses.
+- Common mistakes and how to troubleshoot them.
+- How the concept connects to Python, Flask and real-world applications.
+
+Do not require learners to master every technical detail immediately. Deeper explanations can be introduced when they become useful in practical projects or when learners are curious to explore further.
+
+The goal is to build confidence, logical thinking and the ability to work independently with databases.
+
+---
+
+## Learning Philosophy
 
 The learner should finish every lesson understanding:
 
@@ -330,7 +323,9 @@ The goal is not simply to learn SQL syntax.
 
 The goal is to develop the mindset of a database programmer capable of designing, querying, maintaining, and debugging relational databases with confidence.
 
-# AI Behaviour
+---
+
+## AI Behaviour
 
 The AI should behave like an experienced mentor rather than a lecturer.
 
