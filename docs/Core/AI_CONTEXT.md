@@ -2,22 +2,23 @@
 
 # Purpose
 
-This project is for learning **SQL using SQLite from the absolute beginning**.
+This project supports practical SQL and database learning for two learners.
 
-There are two learners:
+- **Parent:** Learning SQL and Python to build a strong foundation for Python + SQLite + Flask projects and future full-stack development.
+- **Daughter:** Learning practical SQLite alongside Grade 10 Computer Science studies.
 
-- **Parent:** Learning SQL first to build a strong foundation for future **Python + SQLite + Flask** projects, and to confidently teach the daughter.
-- **Daughter:** Studying SQLite as part of **Grade 10 Computer Science**, where school teaching is more theory-based, so this project adds practical understanding.
+The goal is to understand database concepts through hands-on practice rather than simply memorizing syntax.
 
 ---
 
 # Main Learning Goals
 
-- Understand SQL concepts instead of memorizing syntax.
-- Build confidence through repeated hands-on practice.
-- Progress from beginner to intermediate SQL in a structured order.
-- Learn how SQLite connects with Python, Flask, SQLAlchemy, and real web applications.
-- Develop practical skills useful for future freelance and full-stack development.
+- Understand how relational databases work.
+- Develop logical thinking and problem-solving skills.
+- Learn SQL through practical examples.
+- Connect SQL with Python, Flask and SQLAlchemy.
+- Build confidence in creating and managing databases.
+- Develop practical skills useful for real-world web applications.
 
 ---
 
@@ -26,31 +27,30 @@ There are two learners:
 ## Current Setup
 
 - VS Code
-- SQLite Terminal / Shell
-- Lesson files (`lesson01.sql`, `lesson02.sql`, etc.)
-- Persistent database file: `school.db`
+- GitHub repository: SQL-Lessson
+- GitHub Codespaces
+- SQLite database files stored in `databases/`
+- SQL lesson files stored in `sql/`
+- Python + SQLite lesson files stored in `py-sql/`
+- Learning documentation stored in `docs/`
 
-## Standard Workflow
+## Project Structure
 
-1. Open PowerShell in the project folder.
-2. Run:
-
-   sqlite3
-
-3. Open the database:
-
-   .open school.db
-
-4. Run lesson files:
-
-   .read lessonXX.sql
-
-5. Verify your work using:
-
-   - .databases
-   - .tables
-   - .schema table_name
-   - SELECT statements
+```text
+SQL-Lessson/
+│
+├── databases/
+├── docs/
+│   ├── Core/
+│   ├── Python-Sqlite/
+│   ├── References/
+│   └── Sql/
+│       └── Progress/
+│
+├── py-sql/
+├── sql/
+└── README.md
+```
 
 ---
 
@@ -58,179 +58,154 @@ There are two learners:
 
 Teach one concept at a time.
 
-Always prioritize **understanding before memorization**.
+Always prioritize understanding before memorization.
 
 For every lesson:
 
-1. Explain the concept.
+1. Explain the concept first.
 2. Explain why it is useful.
-3. Demonstrate with runnable SQL.
-4. Observe the output.
-5. Explain why the output appeared.
-6. Connect the concept with real applications.
+3. Introduce the syntax or code.
+4. Demonstrate with a practical example.
+5. Run the example and observe the output.
+6. Explain why the output appeared.
+7. Connect the concept with real applications.
 
-Whenever appropriate, connect SQL concepts with:
+Teaching should be gradual and practical.
 
-- Python
-- Flask
-- SQLAlchemy
-- Real-world database design
+Do not introduce too many new concepts at once.
 
 ---
 
-# SQL Practice File Standard
+# SQL Teaching Standard
 
-Every SQL practice file should follow this structure:
+Every SQL lesson should follow the teaching principles documented in:
 
-1. Lesson / Exercise Title
-2. Scenario
-3. SQL Executed (printed before execution)
-4. Query Result (table or error shown immediately after execution)
-5. Explanation of the Result
-6. What You Learned
-7. Mini Challenge (when appropriate)
-8. Flask / Real-World Connection (when appropriate)
+`docs/Core/SQL_TEACHING_STANDARDS.md`
 
----
+Important principles:
 
-# Terminal Teaching Standard
+- Use simple, realistic scenarios.
+- Show the exact SQL before execution.
+- Use SQLite `.print` statements throughout lessons.
+- Display actual results immediately after execution.
+- Explain why each result appeared.
+- Include common beginner mistakes when appropriate.
+- Include a mini challenge when useful.
+- Connect concepts with Python and Flask applications.
 
-Use `.print` statements throughout every lesson.
-
-The terminal itself should become a complete learning guide.
-
-A learner should understand:
-
-- What SQL is being executed.
-- Why it is being executed.
-- What output it produced.
-- Why that output appeared.
-
-without constantly switching back to the lesson file.
-
-The terminal should function as an interactive tutorial rather than simply displaying SQL results.
+The SQLite terminal should function as a learning guide.
 
 ---
 
-# SQL Learning Roadmap
+# SQL Learning Progress
 
-## Phase 1 – Foundations ✅
+## Completed
 
-1. SQL / SQLite / Database / Table / Row / Column
-2. CREATE TABLE
-3. INSERT INTO
-4. SELECT
-5. WHERE
-6. AND / OR / NOT
-7. Comparison Operators
-8. LIKE
-9. ORDER BY
-10. LIMIT
-11. DISTINCT
+SQL learning has progressed through Lesson 30 – Views.
 
----
+Topics covered include:
 
-## Phase 2 – Summaries ✅
+- SQL and SQLite fundamentals.
+- Creating tables and inserting data.
+- SELECT, WHERE and filtering.
+- Sorting and limiting results.
+- Aggregate functions and grouping.
+- NULL values.
+- UPDATE and DELETE.
+- ALTER TABLE and DROP TABLE.
+- Database relationships and foreign keys.
+- INNER JOIN, LEFT JOIN and SELF JOIN.
+- Subqueries:
+  - Introduction to subqueries.
+  - IN and NOT IN.
+  - Scalar subqueries.
+  - EXISTS and NOT EXISTS.
+  - Correlated subqueries.
+- Views.
 
-12. Aggregate Functions
-13. GROUP BY
-14. HAVING
-15. NULL / IS NULL / IS NOT NULL
+## Current Learning Decision
 
----
+SQL learning is temporarily paused after Lesson 30.
 
-## Phase 3 – Changing Data ✅
+This is a planned transition, not abandonment of SQL.
 
-16. UPDATE
-17. DELETE
+The next priority is to learn how Python communicates with SQLite and uses SQL in practical programs.
 
----
+## Remaining SQL Topics
 
-## Phase 4 – Changing Table Structure ✅
+Return to these topics later:
 
-18. ALTER TABLE
-19. ADD COLUMN
-20. RENAME COLUMN
-21. RENAME TABLE
-22. DROP TABLE
-
----
-
-## Phase 5 – Database Relationships (Current)
-
-23. Relationships ✅
-24. Foreign Keys ✅
-25. INNER JOIN
-26. LEFT JOIN
-27. SELF JOIN
-28. Subqueries
-29. Views
-30. Indexes
-31. Transactions
+- Indexes.
+- Transactions.
+- Advanced GROUP BY and HAVING.
+- CASE.
+- UNION and UNION ALL.
+- Common Table Expressions (CTEs).
+- Window Functions.
+- Triggers.
+- Practical SQL projects.
 
 ---
 
-# Current Progress
+# Next Learning Stage: Python + SQLite
 
-Completed:
+The next learning stage will use Python's built-in `sqlite3` module.
 
-- SQLite Lessons 1–25
-- Practice Set 1
-- CRUD Fundamentals
-- ALTER TABLE
-- DELETE
-- DROP TABLE
-- Relationships
-- Foreign Keys
+Planned topics:
 
-Current Focus:
+1. Connecting Python to SQLite using `sqlite3.connect()`.
+2. Understanding connections and cursors.
+3. Creating tables from Python.
+4. Executing SELECT queries.
+5. Retrieving data using `fetchone()` and `fetchall()`.
+6. Inserting records.
+7. Updating records.
+8. Deleting records.
+9. Using SQL parameters safely.
+10. Understanding transactions, `commit()` and `rollback()`.
+11. Closing database connections.
+12. Building a small Python + SQLite CRUD application.
+13. Understanding basic project organization.
 
-- JOINs
-- Relational Database Design
+## Current Python Lesson File
+
+`py-sql/lesson01.py`
+
+## Python + SQLite Reference
+
+`docs/Python-Sqlite/PYTHON_SQLITE_REFERENCE.md`
+
+Develop these existing files gradually. Avoid creating duplicate reference documents or unnecessary lesson files.
 
 ---
 
-# Learning Strategy
+# Long-Term Technology Roadmap
 
-Do not rush through SQL syntax.
+The intended learning progression is:
 
-Understand how relational databases work first.
-
-Once SQL concepts are strong, continue with:
-
-SQLite
-
+SQL fundamentals
 ↓
-
+Python fundamentals
+↓
 Python + SQLite
-
 ↓
-
 Flask + SQLite
-
 ↓
-
 SQLAlchemy
-
 ↓
-
+HTML / CSS / JavaScript / Bootstrap
+↓
+REST APIs
+↓
 PostgreSQL
-
 ↓
-
-MongoDB
-
-↓
-
 React
-
 ↓
-
-Deployment
-
+Deployment and Linux
 ↓
-
 Django
+
+The roadmap can evolve as practical experience grows.
 
 ---
 
@@ -238,42 +213,33 @@ Django
 
 Maintain documentation in topic-based folders.
 
-Recommended structure:
+Important files:
 
-docs/
+- `docs/Core/AI_CONTEXT.md`
+- `docs/Core/ROADMAP.md`
+- `docs/Core/SQL_TEACHING_STANDARDS.md`
+- `docs/Python-Sqlite/PYTHON_SQLITE_REFERENCE.md`
+- `docs/Sql/Progress/LEARNING_PROGRESS.md`
+- `docs/Sql/Progress/LESSON_INDEX.md`
 
-├── AI_CONTEXT.md
-├── LEARNING_PROGRESS.md
-├── ROADMAP.md
-│
-├── sql/
-├── python/
-├── flask/
-├── git/
-├── javascript/
-├── react/
-├── mongodb/
-├── deployment/
-└── projects/
+Keep learning progress and documentation synchronized.
 
-Each technology should eventually contain:
-
-- Notes
-- Progress
-- Quick Reference
-- Practice Files
+Update existing documents rather than creating duplicates.
 
 ---
 
 # Long-Term Objective
 
-Become a practical Full-Stack Web Developer capable of:
+Become a practical full-stack developer capable of:
 
-- Designing databases.
-- Building complete web applications.
-- Maintaining existing client websites.
-- Adding, removing, and modifying features confidently.
-- Understanding both frontend and backend development.
-- Completing freelance projects independently.
+- Designing and managing relational databases.
+- Building Python applications.
+- Developing complete Flask web applications.
+- Understanding backend logic and frontend integration.
+- Maintaining and improving existing websites.
+- Debugging real-world programming problems.
+- Building and deploying useful applications independently.
 
-The goal is not simply to complete tutorials, but to build lasting practical understanding that connects every technology naturally.
+The goal is not simply to complete tutorials.
+
+The goal is to develop lasting practical understanding and the confidence to build real projects.
