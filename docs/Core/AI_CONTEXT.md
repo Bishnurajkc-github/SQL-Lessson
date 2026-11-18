@@ -1,10 +1,11 @@
+
 # AI_CONTEXT.md – SQL Learning (Parent & Daughter)
 
 # Purpose
 
 This project supports practical SQL and database learning for two learners.
 
-- **Parent:** Learning SQL and Python to build a strong foundation for Python + SQLite + Flask projects and future full-stack development.
+- **Parent:** Learning SQL, Python, SQLite and Flask to build a strong foundation for full-stack development.
 - **Daughter:** Learning practical SQLite alongside Grade 10 Computer Science studies.
 
 The goal is to understand database concepts through hands-on practice rather than simply memorizing syntax.
@@ -18,7 +19,7 @@ The goal is to understand database concepts through hands-on practice rather tha
 - Learn SQL through practical examples.
 - Connect SQL with Python, Flask and SQLAlchemy.
 - Build confidence in creating and managing databases.
-- Develop practical skills useful for real-world web applications.
+- Develop practical skills useful for real-world applications.
 
 ---
 
@@ -26,9 +27,10 @@ The goal is to understand database concepts through hands-on practice rather tha
 
 ## Current Setup
 
-- VS Code
 - GitHub repository: SQL-Lessson
 - GitHub Codespaces
+- VS Code-based Codespaces editor
+- Chromebook and browser-based development environment
 - SQLite database files stored in `databases/`
 - SQL lesson files stored in `sql/`
 - Python + SQLite lesson files stored in `py-sql/`
@@ -40,6 +42,7 @@ The goal is to understand database concepts through hands-on practice rather tha
 SQL-Lessson/
 │
 ├── databases/
+│
 ├── docs/
 │   ├── Core/
 │   ├── Python-Sqlite/
@@ -48,6 +51,13 @@ SQL-Lessson/
 │       └── Progress/
 │
 ├── py-sql/
+│   ├── le_01_connect.py
+│   ├── le_02_execute.py
+│   ├── le_03_fetch.py
+│   ├── le_04_insert.py
+│   ├── le_05_update.py
+│   └── le_06_delete.py
+│
 ├── sql/
 └── README.md
 ```
@@ -65,35 +75,109 @@ For every lesson:
 1. Explain the concept first.
 2. Explain why it is useful.
 3. Introduce the syntax or code.
-4. Demonstrate with a practical example.
-5. Run the example and observe the output.
+4. Show the exact SQL or important Python code before execution.
+5. Run the example and observe the actual output.
 6. Explain why the output appeared.
 7. Connect the concept with real applications.
+8. Summarize the learning.
+9. Include a small practical challenge when appropriate.
 
 Teaching should be gradual and practical.
 
 Do not introduce too many new concepts at once.
 
+When working in the terminal:
+
+- Give one practical step or command at a time.
+- Explain why the command is needed.
+- Wait for the learner's output before proceeding.
+- Avoid unnecessary code dumps.
+- Do not move ahead before the current step is understood.
+
 ---
 
-# SQL Teaching Standard
+# Unified Terminal-Based Teaching Method
 
-Every SQL lesson should follow the teaching principles documented in:
+Both SQL and Python + SQLite lessons should function as reusable teaching documents.
+
+The learner should be able to execute a lesson file in the future and revise the concept directly from the terminal without needing a separate explanation.
+
+Each lesson should display explanations, code or SQL, actual execution results, and a summary in a logical sequence.
+
+The exact implementation differs between SQL and Python.
+
+## SQL Teaching Standard
+
+Every SQL lesson should follow:
 
 `docs/Core/SQL_TEACHING_STANDARDS.md`
 
 Important principles:
 
-- Use simple, realistic scenarios.
+- Prepare runnable SQL lesson files.
+- Use `.print` to display explanations.
 - Show the exact SQL before execution.
-- Use SQLite `.print` statements throughout lessons.
-- Display actual results immediately after execution.
+- Use `.read filename.sql` to execute lesson files.
+- Display actual SQLite results.
 - Explain why each result appeared.
 - Include common beginner mistakes when appropriate.
 - Include a mini challenge when useful.
 - Connect concepts with Python and Flask applications.
 
-The SQLite terminal should function as a learning guide.
+The SQLite terminal should function as an interactive learning guide.
+
+## Python + SQLite Teaching Standard
+
+Python lessons should also be prepared as runnable, self-contained `.py` files whenever practical.
+
+Important principles:
+
+- Use `print()` to display explanations directly in the terminal.
+- Explain the concept before executing the relevant code.
+- Show important Python code before execution.
+- Execute the actual code.
+- Display real program output.
+- Explain what happened and why.
+- Include important rules and common mistakes.
+- End with a learning summary.
+- Include a practical challenge when appropriate.
+
+The Python terminal should function as an interactive teacher, just like the SQLite terminal.
+
+### Python Lesson Execution
+
+Run Python lessons from the project root.
+
+Example:
+
+```bash
+python py-sql/le_01_connect.py
+```
+
+Use the following filename convention:
+
+- `le_01_connect.py`
+- `le_02_execute.py`
+- `le_03_fetch.py`
+- `le_04_insert.py`
+- `le_05_update.py`
+- `le_06_delete.py`
+
+Use meaningful, short topic names.
+
+### Python Database Path
+
+The current database files are stored in `databases/`.
+
+When running lessons from the project root, use paths such as:
+
+```python
+sqlite3.connect("databases/students.db")
+```
+
+Keep database paths consistent across lessons.
+
+Avoid accidentally creating duplicate databases in different folders.
 
 ---
 
@@ -101,7 +185,7 @@ The SQLite terminal should function as a learning guide.
 
 ## Completed
 
-SQL learning has progressed through Lesson 30 – Views.
+SQL and SQLite Fundamentals: 30 lessons completed.
 
 Topics covered include:
 
@@ -116,7 +200,6 @@ Topics covered include:
 - Database relationships and foreign keys.
 - INNER JOIN, LEFT JOIN and SELF JOIN.
 - Subqueries:
-  - Introduction to subqueries.
   - IN and NOT IN.
   - Scalar subqueries.
   - EXISTS and NOT EXISTS.
@@ -129,7 +212,7 @@ SQL learning is temporarily paused after Lesson 30.
 
 This is a planned transition, not abandonment of SQL.
 
-The next priority is to learn how Python communicates with SQLite and uses SQL in practical programs.
+The next priority is learning how Python communicates with SQLite and uses SQL in practical programs.
 
 ## Remaining SQL Topics
 
@@ -147,35 +230,82 @@ Return to these topics later:
 
 ---
 
-# Next Learning Stage: Python + SQLite
+# Python Learning Progress
 
-The next learning stage will use Python's built-in `sqlite3` module.
+## Python Fundamentals
 
-Planned topics:
+Basic Python knowledge has already been acquired.
 
-1. Connecting Python to SQLite using `sqlite3.connect()`.
+Revision and further practice are planned when useful.
+
+## Python + SQLite
+
+The current learning stage uses Python's built-in `sqlite3` module.
+
+### Planned Topics
+
+1. Connecting Python to SQLite.
 2. Understanding connections and cursors.
-3. Creating tables from Python.
-4. Executing SELECT queries.
-5. Retrieving data using `fetchone()` and `fetchall()`.
-6. Inserting records.
-7. Updating records.
-8. Deleting records.
-9. Using SQL parameters safely.
-10. Understanding transactions, `commit()` and `rollback()`.
+3. Executing SQL using `execute()`.
+4. Retrieving results using `fetchone()` and `fetchall()`.
+5. Inserting records.
+6. Updating records.
+7. Deleting records.
+8. Using SQL parameters safely.
+9. Understanding SQL injection.
+10. Managing transactions using `commit()` and `rollback()`.
 11. Closing database connections.
-12. Building a small Python + SQLite CRUD application.
+12. Building a Python + SQLite CRUD application.
 13. Understanding basic project organization.
 
-## Current Python Lesson File
+### Current Progress
 
-`py-sql/lesson01.py`
+**Lesson 01 – Connecting Python to SQLite: Completed.**
+
+File:
+
+`py-sql/le_01_connect.py`
+
+Concepts covered:
+
+- Importing `sqlite3`.
+- Connecting using `sqlite3.connect()`.
+- Understanding the connection object.
+- Creating a cursor using `connection.cursor()`.
+- Closing the connection.
+
+The lesson was converted into a terminal-based teaching file using `print()` statements for explanations and actual Python execution.
+
+### Next Lesson
+
+**Lesson 02 – Executing SQL using `execute()`**
+
+File:
+
+`py-sql/le_02_execute.py`
+
+The next lesson should explain how Python sends SQL statements to SQLite using a cursor.
+
+Fetching query results will be covered separately in Lesson 03.
+
+### Existing Lesson Files
+
+- `py-sql/le_01_connect.py`
+- `py-sql/le_02_execute.py`
+- `py-sql/le_03_fetch.py`
+- `py-sql/le_04_insert.py`
+- `py-sql/le_05_update.py`
+- `py-sql/le_06_delete.py`
+
+These files already exist. Develop them gradually rather than creating duplicate lesson files.
 
 ## Python + SQLite Reference
 
 `docs/Python-Sqlite/PYTHON_SQLITE_REFERENCE.md`
 
-Develop these existing files gradually. Avoid creating duplicate reference documents or unnecessary lesson files.
+Use the existing reference document and update it when necessary.
+
+Avoid creating duplicate reference documents.
 
 ---
 
@@ -185,7 +315,7 @@ The intended learning progression is:
 
 SQL fundamentals
 ↓
-Python fundamentals
+Python fundamentals (revision and continued practice)
 ↓
 Python + SQLite
 ↓

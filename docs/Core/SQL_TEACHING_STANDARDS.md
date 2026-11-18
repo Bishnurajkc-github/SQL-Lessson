@@ -1,26 +1,27 @@
-# SQL Teaching Standards
+cat > docs/Core/SQL_TEACHING_STANDARDS.md <<'EOF'
+# Database Learning Teaching Standards
 
 ## Purpose
 
-This document defines how every SQL lesson should be taught.
+This document defines how SQL and Python + SQLite lessons should be taught.
 
-Its purpose is to ensure every lesson follows a consistent teaching style that emphasizes understanding, logical thinking, practical application, and long-term retention rather than memorization.
+Its purpose is to ensure consistent teaching that emphasizes understanding, logical thinking, practical application, and long-term retention rather than memorization.
 
-These standards apply to both Bishnu and Aayushi throughout their SQL and database learning journey.
+These standards apply to both Bishnu and Aayushi throughout their database learning journey.
 
 ---
 
 ## Core Teaching Philosophy
 
-Always prioritize understanding over memorizing SQL syntax.
+Always prioritize understanding over memorizing syntax.
 
-Teach SQL as a way of thinking rather than a collection of commands.
+Teach SQL and Python as ways of thinking rather than collections of commands.
 
 Every lesson should help the learner understand:
 
-- What SQL is doing.
-- Why SQL is doing it.
-- What result SQL produced.
+- What the code is doing.
+- Why it is doing it.
+- What result was produced.
 - Why that result appeared.
 - How the concept connects to real applications.
 
@@ -32,262 +33,225 @@ For every lesson:
 
 - Teach one concept at a time.
 - Never assume prior knowledge beyond completed lessons.
-- Build each lesson naturally from previous lessons.
+- Build naturally from previous lessons.
 - Explain concepts before introducing syntax.
 - Encourage curiosity and logical thinking.
 - Reinforce learning through repetition and practical examples.
+- Avoid unnecessary complexity and overly long lessons.
 
 ---
 
-## Lesson Structure
+## Common Lesson Structure
 
-Every lesson should follow the sequence below whenever appropriate.
-
-**Use the lesson structure flexibly.** Include sections when they genuinely help understanding. Do not repeat explanations or make simple lessons unnecessarily long. The goal is clarity and understanding, not following every section mechanically.
+Use this structure flexibly. Include sections when they genuinely help understanding.
 
 ### 1. Lesson Title
 
 Clearly identify the lesson number and topic.
 
 Example:
-
-Lesson 26 – INNER JOIN
+- SQL Lesson 26 – INNER JOIN
+- Python + SQLite Lesson 02 – execute()
 
 ### 2. Scenario
 
 Introduce a simple real-world situation.
 
 Examples:
-
 - School database
 - Library
 - Online shopping
 - Student management
 - Employee records
 
-The learner should understand why the SQL problem exists before solving it.
-
 ### 3. Learning Objective
 
-Explain what the learner will understand by the end of the lesson.
-
-Example:
-
-"By the end of this lesson you will understand how INNER JOIN combines related tables."
+Explain what the learner should understand by the end.
 
 ### 4. Concept Explanation
 
-Explain the idea without immediately writing SQL.
+Explain the idea before introducing syntax.
 
-Focus on understanding before syntax.
-
-Use simple language.
+Focus on what happens and why.
 
 ### 5. Why It Is Useful
 
-Explain where the concept is used in:
-
-- SQLite
-- Python
-- Flask
-- SQLAlchemy
-- PostgreSQL
-- Real applications
+Connect the concept to SQLite, Python, Flask, SQLAlchemy, PostgreSQL, or real applications whenever appropriate.
 
 ### 6. Predict Before Running
 
-Whenever appropriate, encourage the learner to predict the outcome.
+Whenever appropriate, encourage the learner to predict the outcome before execution.
 
-Examples:
+### 7. Code or SQL Being Executed
 
-- Will Hari appear?
-- How many rows will be returned?
-- Which customer appears twice?
-- Will NULL appear?
+Always show the exact SQL or important Python code before execution.
 
-Encourage thinking before execution.
+Never surprise the learner with unexplained output.
 
-### 7. SQL Being Executed
+### 8. Execute
 
-Before executing SQL, always print the exact SQL statement.
+Run the actual SQL or Python code.
 
-Never surprise the learner with output.
-
-Example:
-
-```sql
-.print "SQL Being Executed"
-.print "SELECT * FROM customers;"
-```
-
-The learner should always know exactly what SQLite is about to execute.
-
-### 8. Execute the SQL
-
-Run the SQL normally.
-
-Allow SQLite to display the real output.
-
-Do not replace actual output with manually written examples unless necessary.
+Use real execution results rather than manually invented output.
 
 ### 9. Observe the Output
 
-After execution, encourage observation before explanation.
-
-Example questions:
-
-- What changed?
-- Which rows disappeared?
-- Which rows appeared?
-- How many rows are shown?
-- What values became NULL?
+Encourage the learner to examine what happened before explaining it.
 
 ### 10. Explain the Output
 
-Clearly explain why SQLite produced the displayed result.
+Explain why the displayed result occurred.
 
-Never assume the learner understands automatically.
-
-Always connect the explanation directly to the SQL statement that was executed.
+Connect the explanation directly to the executed code.
 
 ### 11. Important Rule
 
-Highlight the key rule learned.
-
-Example:
-
-INNER JOIN only returns matching rows from both tables.
+Highlight the key principle learned.
 
 ### 12. Common Beginner Mistakes
 
-Whenever appropriate, explain mistakes beginners commonly make.
+Explain likely mistakes and how to troubleshoot them whenever appropriate.
 
-Examples:
+### 13. Practical Application
 
-- Forgetting the ON clause.
-- Using the wrong JOIN column.
-- Expecting INNER JOIN to return every customer.
-- Confusing NULL with empty text.
-
-### 13. Flask / Python Connection
-
-Whenever appropriate, explain how the SQL concept will be used later.
-
-Examples:
-
-- Flask Notes App
-- Student Management System
-- Login System
-- Shopping Cart
-- Blog Application
-
-Help learners see how SQL fits into full-stack development.
+Connect the concept to Python, Flask, SQLAlchemy, or real projects.
 
 ### 14. What You Learned
 
-Summarize the lesson in simple bullet points.
+Summarize the important points.
 
 ### 15. Mini Challenge
 
-Provide a small practical exercise.
-
-The learner should solve it independently before reading the explanation.
+Provide a small exercise to encourage independent thinking.
 
 ### 16. Lesson Summary
 
-Briefly recap:
-
-- The concept
-- The SQL syntax
-- The important rule
-- Real-world usage
+Briefly recap the concept, syntax, important rule, and practical use.
 
 ---
 
-## Terminal Teaching Standard
+## SQL Teaching Standard
+
+SQL lessons should be prepared as runnable, self-contained `.sql` files whenever practical.
 
 The SQLite terminal should function as an interactive teacher.
 
-A learner should understand the lesson simply by reading the terminal output from top to bottom.
+Use:
 
-Every important SQL statement should include:
-
-- Why it is being executed.
-- The exact SQL that will run.
-- The execution.
-- The output.
-- The explanation.
-
-Never allow important SQL to execute without first showing it in the terminal.
-
----
-
-## Query Teaching Standard
+- `.print` to display explanations.
+- `.read filename.sql` to execute a lesson file.
+- Actual SQL statements to demonstrate concepts.
+- SQLite output to observe results.
 
 Every important SQL statement should follow this order:
 
 1. Explain why the SQL is needed.
-2. Print the SQL.
+2. Display the exact SQL using `.print`.
 3. Execute the SQL.
 4. Observe the output.
 5. Explain why the output appeared.
 
-This sequence should be repeated consistently throughout every lesson.
+Never execute important SQL without showing it first.
 
----
+### Think Like the Database
 
-## Think Like the Database
+Teach SQL from SQLite's perspective.
 
-Teach SQL from SQLite's perspective whenever possible.
+Encourage learners to understand how SQLite processes conditions, relationships, rows, and results.
 
-Instead of saying:
-
-"Ram disappeared."
-
-Prefer:
-
-"SQLite searched for a matching customer_id.
-No matching row existed.
-Therefore SQLite could not create a joined row."
-
-Teach logical reasoning instead of memorization.
-
----
-
-## Incremental Query Building
+### Incremental Query Building
 
 Avoid presenting large SQL statements immediately.
 
-Whenever practical:
+Build complex queries step by step whenever practical.
 
-1. View the first table.
-2. View the second table.
-3. Identify the related column.
-4. Explain the relationship.
-5. Build the SQL query.
-6. Execute it.
-7. Explain the result.
+### Verification Habit
 
-Complex SQL should be built step by step.
+Encourage learners to verify INSERT, UPDATE, DELETE, JOIN, GROUP BY, and schema changes using appropriate queries.
 
 ---
 
-## Verification Habit
+## Python + SQLite Teaching Standard
 
-Encourage learners to verify their work frequently.
+Python lessons should also be prepared as runnable, self-contained `.py` files whenever practical.
 
-After:
+The Python terminal should function as an interactive teacher, just like the SQLite terminal.
 
-- INSERT
-- UPDATE
-- DELETE
-- ALTER TABLE
-- JOIN
-- GROUP BY
+Use:
 
-Use SELECT statements to confirm the result.
+- `print()` to display lesson explanations.
+- Actual Python code to demonstrate concepts.
+- `python filename.py` to execute a lesson.
+- Real program output to observe results.
 
-Develop good debugging habits from the beginning.
+### Terminal-Based Lesson Format
+
+A Python lesson should display the following directly in the terminal whenever appropriate:
+
+1. Lesson title and objective.
+2. Concept explanation.
+3. Important syntax or code being introduced.
+4. Actual execution of the code.
+5. Observable output.
+6. Explanation of the output.
+7. Important rules and common mistakes.
+8. Lesson summary.
+9. Mini challenge when appropriate.
+
+The learner should be able to run the file again in the future and revise the lesson without needing to open a separate explanation document.
+
+### Code Visibility
+
+Show important code before executing it.
+
+Use clear comments and meaningful variable names.
+
+Do not hide important operations inside unexplained functions or large blocks of code.
+
+### Progressive Learning
+
+Build each Python lesson on previously learned concepts.
+
+For example:
+
+- Connecting to SQLite.
+- Executing SQL.
+- Fetching results.
+- Inserting records.
+- Updating records.
+- Deleting records.
+- Using parameters safely.
+- Managing transactions.
+
+Do not introduce advanced concepts before their foundations are understood.
+
+---
+
+## Lesson File and Terminal Standards
+
+Every lesson should be easy to identify and execute.
+
+Use meaningful, consistent filenames.
+
+Examples:
+
+SQL:
+- lesson26_inner_join.sql
+- lesson30_views.sql
+
+Python + SQLite:
+- le_01_connect.py
+- le_02_execute.py
+- le_03_fetch.py
+- le_04_insert.py
+
+Show the exact terminal command required to execute each lesson.
+
+Prefer running lessons from the project root so database paths remain consistent.
+
+Each lesson should be self-contained enough to run independently when practical, while reusing the same project databases where appropriate.
+
+Avoid unnecessary database duplication or accidental changes to existing data.
 
 ---
 
@@ -298,14 +262,15 @@ The objective is practical understanding, not academic examination preparation.
 Learners should understand:
 
 - The main concept and its purpose.
-- How SQL behaves and why it produces particular results.
+- How SQL and Python behave.
+- Why particular results appear.
 - Common practical uses.
-- Common mistakes and how to troubleshoot them.
-- How the concept connects to Python, Flask and real-world applications.
+- Common mistakes and troubleshooting.
+- Connections to real-world applications.
 
-Do not require learners to master every technical detail immediately. Deeper explanations can be introduced when they become useful in practical projects or when learners are curious to explore further.
+Do not require learners to master every technical detail immediately.
 
-The goal is to build confidence, logical thinking and the ability to work independently with databases.
+Introduce deeper explanations when they become useful.
 
 ---
 
@@ -317,11 +282,9 @@ The learner should finish every lesson understanding:
 - Why it happened.
 - How to reproduce it.
 - How to troubleshoot it.
-- Where it will be used in future Python, Flask, SQLAlchemy, PostgreSQL, and real-world projects.
+- Where it will be used in future projects.
 
-The goal is not simply to learn SQL syntax.
-
-The goal is to develop the mindset of a database programmer capable of designing, querying, maintaining, and debugging relational databases with confidence.
+The goal is to develop the mindset of a programmer capable of working confidently with databases.
 
 ---
 
@@ -337,8 +300,32 @@ The AI should:
 - Avoid unnecessary jargon.
 - Use consistent terminology.
 - Prefer understanding over speed.
-- Frequently relate new concepts to previously completed lessons.
+- Relate new concepts to previously completed lessons.
 - Maintain continuity between lessons.
-- Adapt explanations to the learner's current progress.
+- Adapt explanations to the learner's progress.
+- Give one practical step or command at a time when working in the terminal.
+- Wait for the learner's result before moving to the next step.
+- Avoid unnecessary code dumps or premature changes.
 
 The AI should never assume the learner understands a concept simply because it has been introduced before.
+
+---
+
+## Final Teaching Principle
+
+Teach the concept first.
+
+Show the code.
+
+Execute it.
+
+Observe the result.
+
+Explain why it happened.
+
+Practise it.
+
+Repeat when needed.
+
+The objective is not merely to finish lessons, but to develop independent problem-solving skills.
+EOF
